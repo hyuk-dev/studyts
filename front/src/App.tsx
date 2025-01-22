@@ -8,14 +8,19 @@ import useWindowSize from './hooks/useWindowSize';
 import { Registration } from './components/ContentBox/pages/Registration/Registration';
 
 function App() {
-  const { width, height } = useWindowSize();
-  const [userEnv, setUserEnv] = useState();
+
+  type UserEnv = 'desktop' | 'tablet' | 'mobile';
+
+  const [userEnv, setUserEnv] = useState<UserEnv>();
+  const { width , height }= useWindowSize();
   const [pageFocus, setPageFocus] = useState('main');
 
   useEffect(() => {
-    if (width >= 1200) setUserEnv('desktop');
-    if (width >= 744 && width < 1199) setUserEnv('tablet');
-    if (width < 744) setUserEnv('mobile');
+    if(typeof width === 'number'){
+      if (width >= 1200) setUserEnv('desktop');
+      if (width >= 744 && width < 1199) setUserEnv('tablet');
+      if (width < 744) setUserEnv('mobile');
+    }
   }, [width]);
 
   return (
