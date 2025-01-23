@@ -1,6 +1,7 @@
 import './css/ReverseServSection.css'
+import { ServSectionProps } from './types/servSection'
 
-export function ReverseServSection ({userEnv, servSectionImg, servTag, servTitleOne, servTitleTwo, servDescriptionOne, servDescriptionTwo}) {
+const ReverseServSection : React.FC<ServSectionProps> = ({userEnv, servSectionImg, servTag, servTitleOne, servTitleTwo, servDescriptionOne, servDescriptionTwo}) => {
 
     return (
         <>
@@ -22,3 +23,5 @@ export function ReverseServSection ({userEnv, servSectionImg, servTag, servTitle
         </>
     )
 }
+
+export default ReverseServSection

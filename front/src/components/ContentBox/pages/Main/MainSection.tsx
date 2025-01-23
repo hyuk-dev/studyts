@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import mainSectionImg from '../../../../assets/Img_home_top.png';
-export function MainSection({userEnv}) {
+
+interface Props {
+  userEnv: string;
+}
+const MainSection : React.FC<Props> = ({userEnv}) => {
   return (
     <>
       <div className="mainSectionBoundary">
@@ -37,3 +41,5 @@ export function MainSection({userEnv}) {
     </>
   );
 }
+
+export default MainSection

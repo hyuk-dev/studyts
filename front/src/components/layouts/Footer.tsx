@@ -4,7 +4,10 @@ import icTwitterImg from '../../assets/ic_twitter.png';
 import icYoutubeImg from '../../assets/ic_youtube.png';
 import icInstagramImg from '../../assets/ic_instagram.png';
 
-export function Footer({ userEnv }) {
+interface UserEnv{
+  userEnv: string;
+}
+const Footer : React.FC<UserEnv> = ({ userEnv }) => {
   return (
     <div className="footerBackground">
       <div className="footerItems">
@@ -70,3 +73,5 @@ export function Footer({ userEnv }) {
     </div>
   );
 }
+
+export default Footer;

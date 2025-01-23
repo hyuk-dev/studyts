@@ -5,7 +5,11 @@ import '../../styles/Navigation.css';
 import mobileLogoImg from '../../assets/mobile_logo.png';
 import { Link } from 'react-router-dom';
 
-export function Navigation({ userEnv, pageFocus }) {
+interface Props {
+  userEnv: string;
+  pageFocus: string;
+}
+const Navigation : React.FC<Props> = ({userEnv, pageFocus}) => {
   return (
     <>
       <div
@@ -40,3 +44,5 @@ export function Navigation({ userEnv, pageFocus }) {
     </>
   );
 }
+
+export default Navigation

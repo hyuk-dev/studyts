@@ -7,7 +7,21 @@ import { OrderBy } from './OrderBy';
 import icSearchImg from '../../../../../assets/ic_search.png';
 import { Link } from 'react-router-dom';
 
-export function SellingItemList({
+interface Props {
+  order : string;
+  setOrder : React.Dispatch<React.SetStateAction<string>>;
+  page : number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  pageSize: number;
+  setPageSize: React.Dispatch<React.SetStateAction<number>>;
+  keyword: string;
+  setKeyword: React.Dispatch<React.SetStateAction<string>>;
+  totalCount: number;
+  userEnv: string;
+  setTotalCount:React.Dispatch<React.SetStateAction<number>>;
+  pageFocus: string;
+}
+const SellingItemList : React.FC<Props> = ({
   order,
   setOrder,
   page,
@@ -19,12 +33,12 @@ export function SellingItemList({
   userEnv,
   totalCount,
   setTotalCount,
-  focusPage,
-}) {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  pageFocus,
+}) => {
+  const [products, setProducts] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  function currentEnv() {
+  function currentEnv() : string | undefined {
     if (userEnv === 'desktop') return 'productList';
     if (userEnv === 'tablet') return 'tabletProductList';
     if (userEnv === 'mobile') return 'mobileProductList';
@@ -44,7 +58,7 @@ export function SellingItemList({
   }
 
   useEffect(() => {
-    const fetchDatas = () => {
+    const fetchDatas = () : void => {
       setIsLoading(true);
       getProducts();
       setIsLoading(false);
@@ -56,7 +70,7 @@ export function SellingItemList({
     setPage(1);
   }, [keyword, pageSize]);
 
-  function handleSearchInput(e) {
+  function handleSearchInput(e:React.ChangeEvent<HTMLInputElement> ) {
     setKeyword(e.target.value);
   }
 
@@ -110,7 +124,7 @@ export function SellingItemList({
                 totalCount={totalCount}
                 pageSize={pageSize}
                 products={products}
-                focusPage={focusPage}
+                pageFocus={pageFocus}
               />
             </>
           )}
@@ -122,3 +136,5 @@ export function SellingItemList({
     </>
   );
 }
+
+export default SellingItemList

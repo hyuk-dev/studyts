@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import bottomSectionImg from './assets/Img_home_bottom.png';
-export function BottomSection({userEnv}) {
+
+interface Props {
+  userEnv: string;
+}
+const BottomSection: React.FC<Props> = ({userEnv}) => { 
   return (
     <>
       <div className="bottomSectionBoundary">
@@ -39,3 +43,5 @@ export function BottomSection({userEnv}) {
     </>
   );
 }
+
+export default BottomSection;

@@ -1,6 +1,7 @@
 import './css/ServSection.css'
+import { ServSectionProps } from './types/servSection'
 
-export function ServSection ({userEnv, servSectionImg, servTag, servTitleOne, servTitleTwo, servDescriptionOne, servDescriptionTwo}) {
+const ServSection : React.FC<ServSectionProps> = ({userEnv, servSectionImg, servTag, servTitleOne, servTitleTwo, servDescriptionOne, servDescriptionTwo}) => {
 
     return (
         <>
@@ -25,3 +26,5 @@ export function ServSection ({userEnv, servSectionImg, servTag, servTitleOne, se
         </>
     )
 }
+
+export default ServSection

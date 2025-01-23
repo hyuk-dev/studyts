@@ -3,11 +3,19 @@ import './css/Main.css';
 import servSectionImgOne from '../../../../assets/Img_home_01.png'
 import servSectionImgTwo from '../../../../assets/Img_home_02.png'
 import servSectionImgThree from '../../../../assets/Img_home_03.png'
-import { ServSection } from './ServSection';
-import { ReverseServSection } from './ReverseSection';
-import { MainSection } from './MainSection';
-import { BottomSection } from './BottomSection';
-export function Main({ userEnv, setPageFocus }) {
+import ServSection from './ServSection';
+import ReverseServSection from './ReverseSection';
+import MainSection from './MainSection';
+import  BottomSection  from './BottomSection';
+
+interface Props {
+  userEnv: string;
+  setPageFocus: React.Dispatch<React.SetStateAction<string>>;
+}
+
+
+
+const Main : React.FC<Props> = ({userEnv, setPageFocus}) => {
   useEffect(() => {
     setPageFocus('main');
   }, []);
@@ -21,3 +29,5 @@ export function Main({ userEnv, setPageFocus }) {
     </>
   );
 }
+
+export default Main;

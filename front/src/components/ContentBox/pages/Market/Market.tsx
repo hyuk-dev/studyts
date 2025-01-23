@@ -1,13 +1,18 @@
-import { BestItemList } from '../Market/BestItemList/BestItemList';
-import { SellingItemList } from '../Market/SellingItemList/SellingItemList';
+import { BestItemList } from './BestItemList/BestItemList';
+import  SellingItemList  from './SellingItemList/SellingItemList';
 import { useEffect, useState } from 'react';
 
-export function Market({ userEnv, setPageFocus, pageFocus }) {
-  const [order, setOrder] = useState('recent');
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10); // 모바일: 4 , 태블릿: 6, 데스크탑: 10
-  const [keyword, setKeyword] = useState('');
-  const [totalCount, setTotalCount] = useState(1);
+interface Props {
+  userEnv: string;
+  setPageFocus: React.Dispatch<React.SetStateAction<string>>;
+  pageFocus: string;
+}
+const Market : React.FC<Props> = ({userEnv, setPageFocus, pageFocus}) => {
+  const [order, setOrder] = useState<string>('recent');
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10); // 모바일: 4 , 태블릿: 6, 데스크탑: 10
+  const [keyword, setKeyword] = useState<string>('');
+  const [totalCount, setTotalCount] = useState<number>(1);
 
   useEffect(() => {
     if (userEnv === 'desktop') setPageSize(10);
@@ -37,3 +42,5 @@ export function Market({ userEnv, setPageFocus, pageFocus }) {
     </div>
   );
 }
+
+export default Market
