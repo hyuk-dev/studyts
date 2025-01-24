@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/ContentBox/pages/Main/Main';
 import ContentBox from './components/ContentBox/ContentBox';
 import useWindowSize from './hooks/useWindowSize';
-import { Registration } from './components/ContentBox/pages/Registration/Registration';
+import Registration from './components/ContentBox/pages/Registration/Registration';
 
 type UserEnv = string;
 type PageFocus = string;

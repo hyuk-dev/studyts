@@ -1,11 +1,18 @@
 import { useState } from "react";
 
 interface Name {
-  name: string | undefined;
-  nameCheck: string | undefined;
+  name: string;
+  nameCheck: string;
 }
-export function useNameCheck () {
-    const [name, setName] = useState<Name['name']>();
+
+interface UseNameCheckReturn {
+  name: string;
+  nameCheck: string;
+  handleNameInputChange : (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleNameCheck : (e: React.FocusEvent<HTMLInputElement>) => void;
+}
+export function useNameCheck () : UseNameCheckReturn {
+    const [name, setName] = useState<Name['name']>('');
     const [nameCheck, setNameCheck] = useState<Name['nameCheck']>('first');
 
     function handleNameInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -18,5 +25,5 @@ export function useNameCheck () {
         else setNameCheck('notChecked');
       }
 
-    return [name, nameCheck, handleNameInputChange, handleNameCheck];
+    return {name, nameCheck, handleNameInputChange, handleNameCheck};
 }

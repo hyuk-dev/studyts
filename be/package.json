@@ -9,5 +9,13 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   }
 }

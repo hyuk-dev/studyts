@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { SellingItem } from './SellingItem';
-import { SelectPage } from '../SelectPage/SelectPage';
+import  SellingItem  from './SellingItem';
+import  SelectPage  from '../SelectPage/SelectPage';
 
 import '../../../../../styles/SellingItemList.css';
-import { OrderBy } from './OrderBy';
+import OrderBy  from './OrderBy';
 import icSearchImg from '../../../../../assets/ic_search.png';
 import { Link } from 'react-router-dom';
+import { Product } from '../types/product';
 
 interface Props {
   order : string;
@@ -21,6 +22,7 @@ interface Props {
   setTotalCount:React.Dispatch<React.SetStateAction<number>>;
   pageFocus: string;
 }
+
 const SellingItemList : React.FC<Props> = ({
   order,
   setOrder,
@@ -35,7 +37,7 @@ const SellingItemList : React.FC<Props> = ({
   setTotalCount,
   pageFocus,
 }) => {
-  const [products, setProducts] = useState<string[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function currentEnv() : string | undefined {
@@ -123,7 +125,6 @@ const SellingItemList : React.FC<Props> = ({
                 setPage={setPage}
                 totalCount={totalCount}
                 pageSize={pageSize}
-                products={products}
                 pageFocus={pageFocus}
               />
             </>

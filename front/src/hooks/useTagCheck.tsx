@@ -1,13 +1,20 @@
 import { useState , useEffect } from "react";
 
 interface Tag {
-  tag: string[] | undefined;
-  tagCheck: string | undefined;
+  tag: string[];
+  tagCheck: string;
 }
 
-export function useTagCheck ()  {
+interface UseTagCheckReturn {
+  tag: string[];
+  setTag: React.Dispatch<React.SetStateAction<string[]>>;
+  tagCheck: string;
+  handleTagInputKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  handleTagChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    type TagInput = string | undefined;
+export function useTagCheck () : UseTagCheckReturn  {
+    type TagInput = string;
     const [tag, setTag] = useState<Tag['tag']>([]);
     const [tagCheck, setTagCheck] = useState<Tag['tagCheck']>('first');
     const [tagInput, setTagInput] = useState<TagInput>('');
@@ -42,6 +49,6 @@ function handleTagInputKeyDown(e : React.KeyboardEvent<HTMLInputElement>):void {
     setTagInput(e.target.value);
   }
 
-  return [tag,setTag,tagCheck,handleTagInputKeyDown,handleTagChange];
+  return {tag,setTag,tagCheck,handleTagInputKeyDown,handleTagChange};
 
 }

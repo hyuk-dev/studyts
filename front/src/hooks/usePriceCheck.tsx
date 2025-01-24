@@ -1,9 +1,15 @@
 import { useState } from "react";
 
-export function usePriceCheck () {
-    type Price = number | undefined;
-    type PriceCheck = string | undefined;
-    const [price, setPrice] = useState<Price>();
+interface UsePriceCheckReturn {
+  price: number;
+  priceCheck: string;
+  handlePriceInputChange : (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePriceCheck : (e: React.FocusEvent<HTMLInputElement>) => void;
+}
+export function usePriceCheck (): UsePriceCheckReturn {
+    type Price = number;
+    type PriceCheck = string;
+    const [price, setPrice] = useState<Price>(0);
     const [priceCheck, setPriceCheck] = useState<PriceCheck>('first');
 
     function handlePriceInputChange(e: React.ChangeEvent<HTMLInputElement>) : void {
@@ -17,5 +23,5 @@ export function usePriceCheck () {
         else setPriceCheck('notChecked');
       }
 
-      return [price, priceCheck, handlePriceInputChange, handlePriceCheck];
+      return {price, priceCheck, handlePriceInputChange, handlePriceCheck};
 }
