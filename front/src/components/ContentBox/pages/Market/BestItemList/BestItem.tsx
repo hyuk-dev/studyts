@@ -1,9 +1,14 @@
 import icHeartImg from '../../../../../assets/ic_heart.png'
 import '../../../../../styles/BestItem.css'
-export function BestItem({ bestProducts }) {
+import { Product } from '../types/product';
+
+interface bestProductProps {
+  bestProducts : Product[];
+}
+const BestItem : React.FC<bestProductProps> = ({ bestProducts } ) => {
   return (
     <>
-      {bestProducts.map((bestProduct, key) => {
+      { bestProducts.map((bestProduct : Product, key : number )=> {
         return (
           <div className='bestItem' key={key}>
             <div className='imgArea'>
@@ -20,3 +25,5 @@ export function BestItem({ bestProducts }) {
     </>
   );
 }
+
+export default BestItem;

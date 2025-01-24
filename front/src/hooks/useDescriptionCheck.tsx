@@ -11,6 +11,7 @@ interface UseDescriptionReturn {
   handleDescriptionInputChange: ChangeEventHandler<HTMLTextAreaElement>;
   handleDescriptionCheck: FocusEventHandler<HTMLTextAreaElement>;
 }
+
 export function useDescriptionCheck(): UseDescriptionReturn {
   const [description, setDescription] = useState<Description['description']>('');
   const [descriptionCheck, setDescriptionCheck] = useState<Description['descriptionCheck']>('first');
